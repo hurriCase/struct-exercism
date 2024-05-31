@@ -14,7 +14,13 @@ public struct Coord
 
 public struct Plot
 {
-    // TODO: Complete implementation of the Plot struct
+    private int _x;
+    private int _y;
+    public Plot(int x, int y)
+    {
+        this._x = x;
+        this._y = y;
+    }
 }
 
 
