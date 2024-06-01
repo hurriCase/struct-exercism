@@ -56,6 +56,7 @@ public class LandGrabInSpaceTests
         var shorter = CreatePlot(new Coord(1, 1), new Coord(2, 1), new Coord(1, 2), new Coord(2, 2));
         ch.StakeClaim(longer);
         ch.StakeClaim(shorter);
+        Plot test = ch.GetClaimWithLongestSide();
         Assert.Equal(longer, ch.GetClaimWithLongestSide());
     }
 

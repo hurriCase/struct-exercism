@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public struct Coord
 {
@@ -10,39 +12,37 @@ public struct Coord
 
     public ushort X { get; }
     public ushort Y { get; }
+    
 }
 
-public struct Plot
+public struct Plot : IComparable<Plot>
 {
-    private int _x;
-    private int _y;
-    public Plot(int x, int y)
+    private Coord _leftTop;
+    private Coord _rightTop;
+    private Coord _rightBottom;
+    private Coord _leftBottom;
+    private int _perimeter;
+    public Plot(Coord leftBottom, Coord rightBottom, Coord leftTop, Coord rightTop)
     {
-        this._x = x;
-        this._y = y;
+        _leftBottom = leftBottom;
+        _rightBottom = rightBottom;
+        _leftTop = leftTop;
+        _rightTop = rightTop;
+        _perimeter = (rightBottom.X - leftBottom.X) + (rightTop.Y - rightBottom.Y) + (rightTop.X - leftTop.X) +
+                    (leftTop.Y - leftBottom.Y);
     }
+    public int CompareTo(Plot obj) => _perimeter.CompareTo(obj._perimeter);
 }
 
 
 public class ClaimsHandler
 {
-    public void StakeClaim(Plot plot)
-    {
-        throw new NotImplementedException("Please implement the ClaimsHandler.StakeClaim() method");
-    }
+    private List<Plot> _claimedLand = new();
+    public void StakeClaim(Plot plot) => _claimedLand.Add(plot);
 
-    public bool IsClaimStaked(Plot plot)
-    {
-        throw new NotImplementedException("Please implement the ClaimsHandler.IsClaimStaked() method");
-    }
+    public bool IsClaimStaked(Plot plot) => _claimedLand.Contains(plot);
 
-    public bool IsLastClaim(Plot plot)
-    {
-        throw new NotImplementedException("Please implement the ClaimsHandler.IsLastClaim() method");
-    }
+    public bool IsLastClaim(Plot plot) => _claimedLand.Last().Equals(plot);
 
-    public Plot GetClaimWithLongestSide()
-    {
-        throw new NotImplementedException("Please implement the ClaimsHandler.GetClaimWithLongestSide() method");
-    }
+    public Plot GetClaimWithLongestSide() => _claimedLand.Max();
 }

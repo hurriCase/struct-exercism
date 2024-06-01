@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LandGrabInSpace")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+768a906b198db1696e01694de3d943e812075e34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b81a73773c06ee9ef2adc5f2edb60b29a417378a")]
 [assembly: System.Reflection.AssemblyProductAttribute("LandGrabInSpace")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LandGrabInSpace")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
