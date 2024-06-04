@@ -28,8 +28,11 @@ public struct Plot : IComparable<Plot>
         _rightBottom = rightBottom;
         _leftTop = leftTop;
         _rightTop = rightTop;
-        _perimeter = (rightBottom.X - leftBottom.X) + (rightTop.Y - rightBottom.Y) + (rightTop.X - leftTop.X) +
-                    (leftTop.Y - leftBottom.Y);
+        _perimeter = 
+            (rightBottom.X - leftBottom.X) + 
+            (rightTop.Y - rightBottom.Y) + 
+            (rightTop.X - leftTop.X) +
+            (leftTop.Y - leftBottom.Y);
     }
     public int CompareTo(Plot obj) => _perimeter.CompareTo(obj._perimeter);
 }
